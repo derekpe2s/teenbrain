@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teen Brain | Adolescencia Sin manual</title>
+<style>
+:root{--bg:#f6f3ff;--fg:#1b1533;--mut:#5d5578;--card:#ffffff;--line:#ddd5f5;--a:#6c3df4;--b:#ee3f95;--c:#0fb5c9;--nav:rgba(246,243,255,.82);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0a1c;--fg:#f1edff;--mut:#a9a0c9;--card:#171232;--line:#2b2450;--a:#9b78ff;--b:#ff5fae;--c:#35d6e8;--nav:rgba(13,10,28,.82)}}
+:root[data-theme="dark"]{--bg:#0d0a1c;--fg:#f1edff;--mut:#a9a0c9;--card:#171232;--line:#2b2450;--a:#9b78ff;--b:#ff5fae;--c:#35d6e8;--nav:rgba(13,10,28,.82)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 Georgia,"Times New Roman",serif;overflow-x:hidden}
+h1,h2,h3,.sans,nav,button,.tag{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;gap:18px;padding:12px 5vw;background:var(--nav);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav b{font-size:18px;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+nav .l{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav .l a{font-size:13px;text-decoration:none;padding:6px 12px;border-radius:99px;color:var(--mut);white-space:nowrap;transition:.25s}
+nav .l a:hover{background:var(--line);color:var(--fg)}
+nav button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:99px;width:36px;height:36px;cursor:pointer;font-size:16px}
+body::before{content:"";position:fixed;left:0;top:0;height:3px;width:var(--p,0%);background:linear-gradient(90deg,var(--a),var(--b),var(--c));z-index:30}
+.hero{position:relative;min-height:80vh;display:grid;place-items:center;text-align:center;padding:90px 6vw 70px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:fl 14s ease-in-out infinite}
+.b1{width:46vw;height:46vw;background:var(--a);left:-10vw;top:-8vw}
+.b2{width:38vw;height:38vw;background:var(--b);right:-8vw;top:10vh;animation-delay:-4s}
+.b3{width:34vw;height:34vw;background:var(--c);left:30vw;bottom:-16vw;animation-delay:-8s}
+@keyframes fl{50%{transform:translate(5vw,4vw) scale(1.15)}}
+.hero>div{position:relative;max-width:900px}
+.tag{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--mut)}
+.hero h1{font-size:clamp(44px,9vw,110px);line-height:1;margin:22px 0;font-weight:900;letter-spacing:-.03em}
+.hero h1 span{background:linear-gradient(100deg,var(--a),var(--b),var(--c),var(--a));background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gr 7s linear infinite}
+@keyframes gr{to{background-position:300% 0}}
+.hero p{font-size:clamp(17px,2.2vw,22px);color:var(--mut);max-width:640px;margin:0 auto 30px}
+.btn{display:inline-block;padding:14px 28px;border-radius:99px;background:linear-gradient(90deg,var(--a),var(--b));color:#fff;text-decoration:none;font-family:system-ui,sans-serif;font-weight:700;transition:.3s;box-shadow:0 12px 30px -10px var(--a)}
+.btn:hover{transform:translateY(-3px) scale(1.04)}
+.brain{width:min(240px,50vw);margin:0 auto 10px;display:block;animation:pu 3.6s ease-in-out infinite}
+@keyframes pu{50%{transform:scale(1.07)}}
+.mq{overflow:hidden;border-block:1px solid var(--line);background:var(--card);padding:14px 0}
+.mq div{display:flex;gap:48px;width:max-content;animation:mq 28s linear infinite;font:700 18px system-ui,sans-serif;color:var(--mut)}
+.mq i{font-style:normal;color:var(--b)}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:90px 6vw;max-width:1100px;margin:auto}
+.sh{display:flex;align-items:baseline;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+.sh small{font:800 14px system-ui;color:var(--b);letter-spacing:.2em}
+.sh h2{font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05;letter-spacing:-.02em}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;transition:transform .35s,box-shadow .35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -24px var(--a)}
+.av{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--c));display:grid;place-items:center;color:#fff;font:800 22px system-ui;margin-bottom:12px}
+.card h3{margin:0;font-size:19px}.card .sans{color:var(--b);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.art{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:start}
+.art.rev .ph{order:-1}
+@media(max-width:800px){.art{grid-template-columns:1fr}.art.rev .ph{order:0}}
+.art h3{font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin:0 0 6px}
+.by{font:600 13px system-ui;color:var(--mut);margin-bottom:18px}
+.art p{margin:0 0 14px}
+.ref{font-size:13.5px;color:var(--mut);border-left:3px solid var(--a);padding-left:14px;margin-top:20px;font-family:system-ui,sans-serif;line-height:1.55}
+.ph{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;cursor:pointer;border:1px solid var(--line);background:linear-gradient(135deg,var(--a),var(--b) 55%,var(--c));transition:transform .5s;transform-style:preserve-3d}
+.ph:hover{transform:perspective(900px) rotateY(-5deg) rotateX(3deg) scale(1.02)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph span{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#fff;font:600 15px system-ui;padding:20px;gap:8px}
+.ph span b{font-size:42px}
+.ph input{display:none}
+.ph em{position:absolute;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;font:italic 13px system-ui}
+.bars{margin:22px 0;display:grid;gap:14px;font-family:system-ui,sans-serif;font-size:14px}
+.bar{height:12px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.lit{background:linear-gradient(135deg,var(--card),var(--bg));border:1px solid var(--line);border-radius:30px;padding:clamp(26px,5vw,60px);text-align:center;font-size:clamp(18px,2.2vw,23px);font-style:italic;line-height:1.9}
+.lit h3{font-style:normal;font-size:34px;margin:0 0 20px}
+.flip{perspective:900px;height:210px;cursor:pointer}
+.flip>div{position:relative;width:100%;height:100%;transition:transform .8s;transform-style:preserve-3d}
+.flip.f>div{transform:rotateY(180deg)}
+.flip p{position:absolute;inset:0;margin:0;backface-visibility:hidden;border-radius:22px;display:grid;place-content:center;text-align:center;padding:22px;font:600 17px/1.5 system-ui}
+.flip .fr{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;font-size:20px}
+.flip .bk{background:var(--card);border:1px solid var(--line);transform:rotateY(180deg);font-weight:500;font-size:15.5px}
+blockquote{margin:26px 0;padding:6px 0 6px 20px;border-left:4px solid var(--b);font-size:21px;font-style:italic}
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4vw,44px);font-family:system-ui,sans-serif}
+.quiz h3{font-size:24px;margin:0 0 18px}
+.opts{display:grid;gap:10px}
+.opts button{text-align:left;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-size:16px;cursor:pointer;transition:.2s}
+.opts button:hover{border-color:var(--a);transform:translateX(6px)}
+.res{font-size:20px;line-height:1.6}.res b{display:block;font-size:34px;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cnt{font-size:13px;color:var(--mut);margin-bottom:8px}
+footer{text-align:center;padding:50px 6vw calc(50px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);color:var(--mut);font:14px/1.7 system-ui,sans-serif}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+.blob{opacity:.35}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.pt{position:absolute;bottom:-60px;border-radius:50%;opacity:.28;background:linear-gradient(135deg,var(--a),var(--b));animation:up linear infinite}
+@keyframes up{to{transform:translateY(-120vh) rotate(360deg)}}
+.ph{cursor:pointer}
+.ph small{font:12px ui-monospace,monospace;background:rgba(0,0,0,.3);padding:3px 9px;border-radius:8px;justify-self:center}
+.av{overflow:hidden}.av img{width:100%;height:100%;object-fit:cover}
+.tm .av{width:84px;height:84px;font-size:30px}
+.card p{margin:8px 0 0;font-size:15.5px;line-height:1.55;font-family:system-ui,sans-serif}
+.card ul{margin:8px 0 0;padding-left:18px;font:15.5px/1.6 system-ui,sans-serif}
+.pg{display:none}
+.pg.on{display:block;animation:pin .5s ease}
+@keyframes pin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+nav .l a.act{background:var(--line);color:var(--fg);font-weight:700}
+.pager{max-width:1100px;margin:0 auto;padding:30px 6vw 70px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:system-ui,sans-serif}
+.pager .btn{border:0;cursor:pointer;font-size:16px;padding:14px 26px}
+.pager .btn.pv{background:var(--card);color:var(--fg);border:1px solid var(--line);box-shadow:none}
+.pager .btn:disabled{opacity:.3;cursor:not-allowed;transform:none}
+.pager .pi{color:var(--mut);font-size:14px;text-align:center}
+@media(max-width:520px){.pager .btn{padding:12px 16px;font-size:14px}}
+
+/* ANIMACIONES EXTRA */
+.hero>div>:not(.brain){opacity:0;animation:hin .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero>div>.tag{animation-delay:.5s}.hero>div>h1{animation-delay:.75s}.hero>div>p{animation-delay:1s}
+@keyframes hin{from{opacity:0;transform:translateY(34px) scale(.96)}to{opacity:1;transform:none}}
+.brain path{stroke-dasharray:700;stroke-dashoffset:700;animation:dr 2.4s .2s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.tag{background-image:linear-gradient(110deg,transparent 40%,rgba(155,120,255,.35) 50%,transparent 60%);background-size:250% 100%;animation:sh 3.5s linear infinite}
+@keyframes sh{to{background-position:-250% 0}}
+.hero h1 span{display:inline-block;animation:gr 7s linear infinite,bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-1.5deg)}}
+.sh h2{position:relative}
+.sh h2::after{content:"";display:block;height:5px;width:0;margin-top:8px;border-radius:5px;background:linear-gradient(90deg,var(--a),var(--b),var(--c));transition:width 1.1s .4s cubic-bezier(.2,.7,.2,1)}
+.sh.on h2::after{width:90px}
+.sh small{display:inline-block;animation:bob 3s ease-in-out infinite}
+.card:hover .av{animation:wob .7s ease}
+@keyframes wob{25%{transform:rotate(-12deg) scale(1.1)}60%{transform:rotate(10deg) scale(1.1)}}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%);transition:transform .9s;pointer-events:none}
+.ph:hover::after{transform:translateX(120%)}
+.ph span b{display:inline-block;animation:bob 2.6s ease-in-out infinite}
+.btn{animation:glow 2.6s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 12px 44px -4px var(--b)}}
+.flip:hover{transform:translateY(-6px) rotate(-1deg);transition:transform .3s}
+blockquote{transition:transform .4s,border-color .4s}blockquote:hover{transform:translateX(10px);border-color:var(--a)}
+.mq:hover div{animation-play-state:paused}
+.opts button{animation:hin .5s both}.opts button:nth-child(2){animation-delay:.1s}.opts button:nth-child(3){animation-delay:.2s}
+.quiz h3,.quiz .cnt{animation:hin .5s both}
+@media(prefers-reduced-motion:reduce){.hero>div>:not(.brain){opacity:1}.brain path{stroke-dashoffset:0}.sh h2::after{width:90px}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<nav>
+<b>🧠 Teen Brain</b>
+<div class="l"><a href="#portada">Portada</a><a href="#editorial">Editorial</a><a href="#redes">Redes sociales</a><a href="#cerebro">El cerebro</a><a href="#presion">Presión social</a><a href="#positivo">Lo positivo</a><a href="#opinion">Opinión</a><a href="#juego">Juego</a></div>
+<button id="th" aria-label="Cambiar tema">🌓</button>
+</nav>
+<main>
+<div class="pg on" id="portada">
+<header class="hero"><div>
+<svg class="brain" viewBox="0 0 200 160" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#9b78ff"/><stop offset=".5" stop-color="#ff5fae"/><stop offset="1" stop-color="#35d6e8"/></linearGradient></defs><path d="M100 20c-10-14-34-12-40 4-16 0-26 16-18 30-10 8-8 26 4 32-2 14 12 26 26 20 6 12 22 12 28 0V20z"/><path d="M100 20c10-14 34-12 40 4 16 0 26 16 18 30 10 8 8 26-4 32 2 14-12 26-26 20-6 12-22 12-28 0"/><path d="M70 60c10 0 14 8 30 8M130 60c-10 0-14 8-30 8M72 96c12-4 18 2 28 2M128 96c-12-4-18 2-28 2" stroke-width="3"/></svg>
+<span class="tag">Teen Brain · Edición 01</span>
+<h1>Adolescencia <span>Sin manual</span></h1>
+<p>Una guía para sobrevivir sin sentirte mal contigo mismo o presionado a ser alguien que verdaderamente no eres.</p>
+</div></header>
+<div class="mq"><div><span>Emociones</span><i>✦</i><span>Cerebro</span><i>✦</i><span>Redes sociales</span><i>✦</i><span>Amistad</span><i>✦</i><span>Escuela</span><i>✦</i><span>Sueños</span><i>✦</i><span>Emociones</span><i>✦</i><span>Cerebro</span><i>✦</i><span>Redes sociales</span><i>✦</i><span>Amistad</span><i>✦</i><span>Escuela</span><i>✦</i><span>Sueños</span><i>✦</i></div></div>
+</div>
+
+<section class="pg" id="editorial">
+<div class="sh rv"><small>00</small><h2>Editorial</h2></div>
+<div class="art" style="grid-template-columns:1fr;max-width:760px">
+<div class="rv">
+<h3>¿Por qué hacemos esta revista?</h3>
+<div class="by">Por: El equipo de Teen Brain</div>
+<p>Siempre nos dicen que somos impulsivos, distraídos o dramáticos. Pero casi nadie nos explica qué pasa dentro de nuestra cabeza. Por eso hicimos esta revista.</p>
+<p>Somos un equipo que investigó, escribió, tomó fotos y diseñó cada página. Queremos contar cómo es la vida de un adolescente con datos reales y con nuestras propias palabras.</p>
+<p>“Adolescencia Sin manual” es una guía para sobrevivir sin sentirte mal contigo mismo o presionado a ser alguien que verdaderamente no eres.</p>
+</div>
+</div>
+<div class="sh rv" style="margin-top:50px"><small>EQUIPO</small><h2>Quiénes somos</h2></div>
+<div class="grid tm" id="team"></div>
+</section>
+
+<section class="pg" id="redes">
+<div class="sh rv"><small>01</small><h2>Redes sociales</h2></div>
+<div class="art">
+<div class="rv">
+<h3>Conectados, pero ¿a qué costo?</h3>
+<div class="by">Por: Derek Aaron Perez Amezquita · Reportaje</div>
+<p>Para un adolescente, las redes son el lugar donde platica con sus amigos, se entera de todo y siente que pertenece. Y no siempre es malo: la OMS encontró que quienes las usan mucho, pero sin perder el control, reportan más apoyo de sus compañeros.</p>
+<p>El problema empieza cuando se pierde el control. Un estudio con casi 280,000 jóvenes de 11, 13 y 15 años, en 44 países, mostró que el uso excesivo subió de 7% en 2018 a 11% en 2022. Las actitudes de alarma son dejar otras actividades, discutir por el tiempo de uso, mentir sobre cuánto se usa y no poder parar.</p>
+<p>Es más común a los 13 años, y las chicas lo reportan más que los chicos. Recuerda lo que vimos del cerebro: el sistema de control todavía está madurando y la aprobación de los demás pega fuerte. Por eso un “me gusta” se siente tan importante.</p>
+<p style="font-size:14px;color:var(--mut)">*Los datos del estudio vienen sobre todo de países de Europa.</p>
+<div class="ref">Referencias: Organización Mundial de la Salud, Oficina Regional para Europa. (2024, 25 de septiembre). <i>Les adolescents, les écrans et la santé mentale</i>. https://www.who.int/europe/fr/news/item/25-09-2024-teens--screens-and-mental-health<br>Euronews. (2026, 19 de junio). <i>Las niñas sufren un mayor impacto por la adicción a las redes sociales</i>. https://es.euronews.com/2026/06/19/las-ninas-sufren-un-mayor-impacto-por-la-adiccion-a-las-redes-sociales</div>
+</div>
+<div class="ph rv" data-f="redes" data-cap="Adolescentes y redes sociales" data-i="📱"></div>
+</div>
+</section>
+
+<section class="pg" id="cerebro">
+<div class="sh rv"><small>02</small><h2>El cerebro adolescente</h2></div>
+<div class="art">
+<div class="rv">
+<h3>¿Qué pasa entre los 10 y los 19 años?</h3>
+<div class="by">Por: Derek Aarón · Divulgación científica</div>
+<p>En esta etapa el cerebro cambia más rápido que en cualquier otra, después de la infancia. Pero no todo madura al mismo tiempo, y esa diferencia de tiempos provoca:</p>
+<p>• Más impulsividad.<br>• Decisiones rápidas y emocionales.<br>• Más sensibilidad a los premios y a la presión de los demás.</p>
+<div class="bars">
+<div>Sistema emocional (emociones y premios)<div class="bar"><i data-w="92"></i></div></div>
+<div>Sistema de control (planear y frenar impulsos)<div class="bar"><i data-w="60"></i></div></div>
+<div>Importancia de la opinión de los amigos<div class="bar"><i data-w="85"></i></div></div>
+</div>
+<div class="ref">Referencias: Blakemore, S.-J., &amp; Choudhury, S. (2006). Development of the adolescent brain: Implications for executive function and social cognition. <i>Journal of Child Psychology and Psychiatry, 47</i>(3-4), 296-312.<br>Steinberg, L. (2005). Cognitive and affective development in adolescence. <i>Trends in Cognitive Sciences, 9</i>(2), 69-74.</div>
+</div>
+<div class="ph rv" data-f="cerebro" data-cap="El cerebro adolescente" data-i="🧠"></div>
+</div>
+<div class="grid" style="margin-top:44px">
+<div class="card rv"><div class="sans">Madura primero</div><h3>Sistema emocional</h3><ul><li>Controla las emociones y los premios</li><li>Ya funciona a toda velocidad</li></ul></div>
+<div class="card rv"><div class="sans">Madura después (20 a 25 años)</div><h3>Sistema de control</h3><ul><li>Controla los impulsos, planea y decide</li><li>Todavía está en desarrollo</li></ul></div>
+</div>
+</section>
+
+<section class="pg" id="presion">
+<div class="sh rv"><small>03</small><h2>Presión social</h2></div>
+<p class="rv" style="color:var(--mut)">Ser tú mismo también es parte de crecer.</p>
+<div class="grid">
+<div class="card rv"><div class="sans">Presión de grupo</div><h3>Querer encajar</h3><p>Es la influencia de amigos y compañeros para que pienses o actúes como ellos. En la adolescencia pesa más porque la aprobación de los demás se siente muy importante.</p></div>
+<div class="card rv"><div class="sans">Comparación</div><h3>Todos se ven perfectos</h3><p>En redes casi todos muestran solo lo mejor. Compararte con eso puede hacerte sentir que no eres suficiente, aunque lo que ves no sea la vida real.</p></div>
+<div class="card rv"><div class="sans">Ser auténtico</div><h3>Tú no eres un filtro</h3><p>Cambiar tu forma de ser para caerle bien a todos cansa. Rodearte de personas que te aceptan como eres te ayuda a sentirte más tranquilo.</p></div>
+<div class="card rv"><div class="sans">Pedir ayuda</div><h3>No tienes que poder solo</h3><p>Si te sientes mal contigo mismo o muy presionado, platícalo con alguien de confianza: tu familia, un amigo o un maestro.</p></div>
+</div>
+<div class="ref rv" style="margin-top:26px">Referencias: Steinberg, L. (2005). Cognitive and affective development in adolescence. <i>Trends in Cognitive Sciences, 9</i>(2), 69-74.<br>Organización Mundial de la Salud. (2021). <i>Salud mental del adolescente</i>. https://www.who.int/es/news-room/fact-sheets/detail/adolescent-mental-health</div>
+</section>
+
+<section class="pg" id="positivo">
+<div class="sh rv"><small>04</small><h2>Lo positivo</h2></div>
+<div class="lit rv">
+<h3>Lo que practicas se queda</h3>
+<p>Todo lo que se practica se graba con más fuerza: los buenos hábitos, el control de las emociones y el aprendizaje.</p>
+<p style="font-style:normal;font-size:15px;font-family:system-ui,sans-serif;color:var(--mut)">Frase clave</p>
+<blockquote style="text-align:left;display:inline-block">No se trata de “no pensar”, sino de un cerebro que aún está aprendiendo a reaccionar.</blockquote>
+</div>
+<div class="sh rv" style="margin-top:60px"><small>05</small><h2>¿Sabías qué?</h2></div>
+<p class="rv" style="color:var(--mut)">Toca cada tarjeta para ver el dato.</p>
+<div class="grid">
+<div class="flip rv"><div><p class="fr">¿Por qué cuesta tanto levantarse temprano?</p><p class="bk">En la adolescencia el reloj del cuerpo se atrasa. Por eso nos da sueño tarde y nos cuesta despertar.</p></div></div>
+<div class="flip rv"><div><p class="fr">¿Por qué importan tanto los amigos?</p><p class="bk">El cerebro adolescente se alegra más cuando los demás lo aceptan. Por eso queremos pertenecer.</p></div></div>
+<div class="flip rv"><div><p class="fr">¿Cuánto sueño necesitamos?</p><p class="bk">Entre 8 y 10 horas por noche. Pero muchos duermen menos entre semana.</p></div></div>
+<div class="flip rv"><div><p class="fr">¿Qué es el FOMO?</p><p class="bk">Es el miedo a perderte lo que otros viven. Las redes lo empeoran porque solo muestran lo mejor.</p></div></div>
+</div>
+<div class="ref rv" style="margin-top:26px">Referencia: Carskadon, M. A. (2011). Sleep in adolescents: The perfect storm. <i>Pediatric Clinics of North America, 58</i>(3), 637-647.</div>
+</section>
+
+<section class="pg" id="opinion">
+<div class="sh rv"><small>06</small><h2>Opinión</h2></div>
+<div class="art">
+<div class="rv">
+<h3>No somos “la generación de cristal”</h3>
+<div class="by">Por: Derek Aaron Perez Amezquita · Opinión</div>
+<p>Cada vez que un adolescente habla de ansiedad o cansancio, alguien dice que “antes no se sufría tanto”. Yo creo que sí se sufría, pero no se hablaba. Pedir ayuda no es debilidad: es avisar lo que nos pasa.</p>
+<blockquote>Hablar de lo que sentimos no nos hace frágiles: nos hace conscientes.</blockquote>
+<p>Muchos problemas de salud mental empiezan antes de los 20 años, según la OMS. Ignorarlos no los quita: los hace más difíciles de ver. Y una sociedad que escucha a sus jóvenes toma mejores decisiones.</p>
+<p>Por eso propongo que las escuelas tengan espacios para escuchar de verdad y que los adultos pregunten antes de juzgar. La adolescencia no se corrige con regaños: se acompaña.</p>
+<div class="ref">Referencia: Organización Mundial de la Salud. (2021). <i>Salud mental del adolescente</i>. https://www.who.int/es/news-room/fact-sheets/detail/adolescent-mental-health</div>
+</div>
+<div class="ph rv" data-f="opinion" data-cap="Foto para la opinión" data-i="📷"></div>
+</div>
+</section>
+
+<section class="pg" id="juego">
+<div class="sh rv"><small>07</small><h2>Juego</h2></div>
+<div class="quiz rv" id="q"></div>
+</section>
+</main>
+
+<div class="pager">
+<button class="btn pv" id="pv">← Anterior</button>
+<span class="pi" id="pi"></span>
+<button class="btn" id="nx">Siguiente →</button>
+</div>
+
+<footer>
+<b style="font-size:18px">🧠 Teen Brain</b>
+</footer>
+
+<script>
+const root=document.documentElement;
+document.getElementById("th").onclick=()=>{
+const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+root.dataset.theme=dark?"light":"dark";
+};
+/* EQUIPO: f = nombre de la foto (sin .jpg) */
+const T=[
+{n:"Maria Regina Chavez Gomez",r:"Editora en jefe y correctora",f:"regina"},
+{n:"Derek Aaron Perez Amezquita",r:"Diseñador",f:"aaron"},
+{n:"Jesus Bejines Cuenca",r:"Diseñador",f:"jesus"},
+{n:"Axel Mariscal",r:"Fotógrafo",f:"axel"},
+{n:"Jaime Mateo Mariscal Beas",r:"Escritor",f:"mateo"},
+{n:"Carlos Obed Cervantez Alvarez",r:"Escritor",f:"carlos"},
+{n:"Romina Gonzales Jimenez",r:"Fotógrafa",f:"romina"}
+];
+const X=["jpg","jpeg","png","webp","JPG","JPEG","PNG","WEBP","jfif","avif","gif"];
+function foto(f,ok){let k=0;const im=new Image();im.alt="";im.onload=()=>ok(im);im.onerror=()=>{if(++k<X.length)im.src=f+"."+X[k]};im.src=f+"."+X[0]}
+document.getElementById("team").innerHTML=T.map(t=>'<div class="card rv"><div class="av" data-f="'+t.f+'">'+t.n[0]+'</div><div class="sans">'+t.r+'</div><h3>'+t.n+'</h3></div>').join("");
+document.querySelectorAll(".av[data-f]").forEach(a=>foto(a.dataset.f,im=>{a.textContent="";a.appendChild(im)}));
+document.querySelectorAll(".ph").forEach(p=>{
+p.innerHTML='<span><b>'+p.dataset.i+'</b>Aquí va la foto<small>'+p.dataset.f+'.jpg</small></span>';
+foto(p.dataset.f,im=>{p.innerHTML="";p.appendChild(im);const c=document.createElement("em");c.textContent=p.dataset.cap;p.appendChild(c)});
+});
+function elegir(el,put){el.style.cursor="pointer";el.addEventListener("click",ev=>{if(el.querySelector("img"))return;const i=document.createElement("input");i.type="file";i.accept="image/*";i.onchange=()=>{const f=i.files[0];if(!f)return;const im=new Image();im.alt="";im.onload=()=>put(im);im.src=URL.createObjectURL(f)};i.click()})}
+document.querySelectorAll(".ph").forEach(p=>elegir(p,im=>{p.innerHTML="";p.appendChild(im);const c=document.createElement("em");c.textContent=p.dataset.cap;p.appendChild(c)}));
+document.querySelectorAll(".av[data-f]").forEach(a=>elegir(a,im=>{a.textContent="";a.appendChild(im)}));
+const bg=document.querySelector(".bg");
+for(let k=0;k<16;k++){const d=document.createElement("i");d.className="pt";const z=8+Math.random()*26;
+d.style.cssText="left:"+Math.random()*100+"%;width:"+z+"px;height:"+z+"px;animation-duration:"+(16+Math.random()*22)+"s;animation-delay:-"+Math.random()*30+"s";bg.appendChild(d)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("on");setTimeout(()=>{e.target.style.transitionDelay=""},2000);
+e.target.querySelectorAll(".bar i").forEach(b=>b.style.width=b.dataset.w+"%");
+io.unobserve(e.target);
+}
+}),{threshold:.15});
+document.querySelectorAll(".grid").forEach(g=>[...g.children].forEach((c,k)=>c.style.transitionDelay=(k*.12)+"s"));
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+const ids=["portada","editorial","redes","cerebro","presion","positivo","opinion","juego"];
+const pgs=ids.map(x=>document.getElementById(x));
+const links=[...document.querySelectorAll("nav .l a")];
+let cur=-1;
+function show(n,top){
+n=Math.max(0,Math.min(ids.length-1,n));
+if(n===cur)return;
+cur=n;
+pgs.forEach((p,k)=>p.classList.toggle("on",k===n));
+links.forEach(a=>a.classList.toggle("act",a.getAttribute("href")==="#"+ids[n]));
+document.getElementById("pv").disabled=n===0;
+document.getElementById("nx").disabled=n===ids.length-1;
+document.getElementById("pi").textContent=(n+1)+" / "+ids.length;
+root.style.setProperty("--p",(n/(ids.length-1)*100)+"%");
+if(top!==false)scrollTo({top:0,behavior:"instant"});
+const a=links.find(a=>a.classList.contains("act"));
+if(a)a.scrollIntoView({block:"nearest",inline:"center"});
+}
+function fromHash(first){const k=ids.indexOf(location.hash.slice(1));show(k<0?0:k,!first)}
+addEventListener("hashchange",()=>fromHash(false));
+document.getElementById("nx").onclick=()=>{location.hash=ids[Math.min(cur+1,ids.length-1)]};
+document.getElementById("pv").onclick=()=>{location.hash=ids[Math.max(cur-1,0)]};
+fromHash(true);
+document.querySelectorAll(".flip").forEach(f=>f.onclick=()=>f.classList.toggle("f"));
+const Q=[
+{t:"Es viernes por la noche. ¿Qué plan eliges?",o:["Salir con todo el grupo","Tarde de películas","Crear algo: dibujar, escribir o grabar música"]},
+{t:"Tienes un problema fuerte. ¿Qué haces primero?",o:["Lo platico con mis amigos","Me lo guardo y lo pienso mucho","Lo escribo o lo convierto en arte"]},
+{t:"¿Cuál frase te describe mejor?",o:["Mi energía contagia","Prefiero observar antes de hablar","Siento el mundo en colores intensos"]}
+];
+const R=[
+{n:"Mente social",d:"Tu cerebro se enciende con la conexión humana. Eres un gran amigo, solo recuerda darte tiempo a solas."},
+{n:"Mente reflexiva",d:"Procesas todo por dentro y ves detalles que otros no notan. Compartir lo que piensas te hará más ligero."},
+{n:"Mente creativa",d:"Transformas lo que sientes en ideas. Tu superpoder es convertir el caos interno en algo que otros pueden entender."}
+];
+const box=document.getElementById("q");
+let i=0,s=[0,0,0];
+function draw(){
+if(i>=Q.length){
+const m=s.indexOf(Math.max(...s));
+box.innerHTML='<div class="res">Tu resultado:<b>'+R[m].n+'</b>'+R[m].d+'</div><br><button class="btn" style="border:0;cursor:pointer" id="rs">Volver a jugar</button>';
+document.getElementById("rs").onclick=()=>{i=0;s=[0,0,0];draw()};
+return;
+}
+const q=Q[i];
+box.innerHTML='<div class="cnt">Pregunta '+(i+1)+' de '+Q.length+'</div><h3>'+q.t+'</h3><div class="opts">'+q.o.map((x,k)=>'<button data-k="'+k+'">'+x+'</button>').join("")+'</div>';
+box.querySelectorAll("button").forEach(b=>b.onclick=()=>{s[+b.dataset.k]++;i++;draw()});
+}
+draw();
+</script>
+</body>
+</html>
